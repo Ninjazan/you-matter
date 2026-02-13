@@ -1,82 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>You Matter 💙</title>
-  < style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Matter</title>
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --bg: #f8f9fa;
+        }
 
-    .card {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 400px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      backdrop-filter: blur(10px);
-    }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
 
-    h1 {
-      margin-bottom: 15px;
-    }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-    p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            animation: fadeIn 2s ease-in;
+        }
 
-    button {
-      background: white;
-      color: #764ba2;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
-    }
+        p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
 
-    button:hover {
-      transform: scale(1.05);
-      background: #f0f0f0;
-    }
-  </style>
+        button {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #compliment {
+            margin-top: 2rem;
+            font-style: italic;
+            min-height: 1.5rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>Hey 💙</h1>
-    <p id="message">
-      Just a reminder that you matter more than you think.
-    </p>
-    <button onclick="newMessage()">Click me ✨</button>
-  </div>
+    <div class="card">
+        <h1>You Matter.</h1>
+        <p>A little reminder that the world is better with you in it.</p>
+        
+        <button onclick="newCompliment()">Click for a boost</button>
+        <div id="compliment"></div>
+    </div>
 
-  <script>
-    const messages = [
-      "You matter more than you think 💙",
-      "I’m really glad you exist.",
-      "You make the world better just by being you.",
-      "Even on bad days, you are enough.",
-      "Someone cares about you more than you know.",
-      "You deserve kindness — especially from yourself.",
-      "I believe in you. Always."
-    ];
+    <script>
+        const compliments = [
+            "You're a limited edition.",
+            "Your perspective is unique and needed.",
+            "You make a bigger difference than you realize.",
+            "You are incredibly capable.",
+            "Someone is smiling right now because of you.",
+            "You are worth the effort."
+        ];
 
-    function newMessage() {
-      const random = Math.floor(Math.random() * messages.length);
-      document.getElementById("message").innerText = messages[random];
-    }
-  </script>
-
+        function newCompliment() {
+            const display = document.getElementById('compliment');
+            const random = compliments[Math.floor(Math.random() * compliments.length)];
+            display.innerText = random;
+        }
+    </script>
 </body>
 </html>
